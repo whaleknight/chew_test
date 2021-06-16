@@ -8,9 +8,6 @@ export class AddTransferModal extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    photofilename = "anonymous.png";
-    imagesrc = process.env.REACT_APP_PHOTOPATH + this.photofilename;
-
     componentDidMount() {
         fetch(process.env.REACT_APP_API + 'accounts')
             .then(response => response.json())

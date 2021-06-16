@@ -26,19 +26,7 @@ export class Transfer extends Component {
     }
 
     componentDidUpdate() {
-        this.refreshList();
-    }
-
-    deleteEmp(empid) {
-        if (window.confirm('Are you sure?')) {
-            fetch(process.env.REACT_APP_API + 'employee/' + empid, {
-                method: 'DELETE',
-                header: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            })
-        }
+        // this.refreshList();
     }
 
     hardcodeTest() {
@@ -65,8 +53,18 @@ export class Transfer extends Component {
     }
     render() {
         const { emps } = this.state;
-        let addModalClose = () => this.setState({ addModalShow: false });
-        let addModal2Close = () => this.setState({ addModal2Show: false });
+        // let addModalClose = () => this.setState({ addModalShow: false });
+        // let addModal2Close = () => this.setState({ addModal2Show: false });
+        let addModalClose = () => {
+            this.setState({ addModalShow: false });
+            this.refreshList();
+        }
+            ;
+        let addModal2Close = () => {
+            this.setState({ addModal2Show: false });
+            this.refreshList();
+        }
+            ;
         return (
             <div >
                 <Table className="mt-4" striped bordered hover size="sm">

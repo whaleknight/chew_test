@@ -25,24 +25,21 @@ export class Account extends Component {
     }
 
     componentDidUpdate() {
-        this.refreshList();
+        // this.refreshList();
     }
 
-    deleteDep(depid) {
-        if (window.confirm('Are you sure?')) {
-            fetch(process.env.REACT_APP_API + 'department/' + depid, {
-                method: 'DELETE',
-                header: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            })
-        }
-    }
     render() {
         const { deps } = this.state;
-        let addModalClose = () => this.setState({ addModalShow: false });
-        let addModal2Close = () => this.setState({ addModal2Show: false });
+        let addModalClose = () => {
+            this.setState({ addModalShow: false });
+            this.refreshList();
+        }
+            ;
+        let addModal2Close = () => {
+            this.setState({ addModal2Show: false });
+            this.refreshList();
+        }
+            ;
         return (
             <div >
                 <Table className="mt-4" striped bordered hover size="sm">

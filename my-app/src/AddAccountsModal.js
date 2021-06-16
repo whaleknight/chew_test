@@ -44,7 +44,7 @@ export class AddAccountsModal extends Component {
         })
             .then(res => res.json())
             .then((result) => {
-                alert(result);
+                alert(JSON.stringify(result));
             },
                 (error) => {
                     alert('Failed');

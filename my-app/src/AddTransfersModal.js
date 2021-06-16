@@ -8,9 +8,6 @@ export class AddTransfersModal extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    photofilename = "anonymous.png";
-    imagesrc = process.env.REACT_APP_PHOTOPATH + this.photofilename;
-
     componentDidMount() {
         fetch(process.env.REACT_APP_API + 'accounts')
             .then(response => response.json())
@@ -104,11 +101,8 @@ export class AddTransfersModal extends Component {
                                             placeholder="TransferAmount" />
                                     </Form.Group>
 
-                                    <Form.Group>
-                                        <Button variant="primary" type="submit">
-                                            Submit
-                                        </Button>
-                                    </Form.Group>
+                                    <br/>
+                                    
                                     <Form.Group controlId="SourceAccountId2">
                                         <Form.Label>SourceAccountId2</Form.Label>
                                         <Form.Control as="select">
